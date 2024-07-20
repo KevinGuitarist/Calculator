@@ -2,7 +2,6 @@ package com.kevinguitarist.calculatorapp
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
@@ -31,11 +30,10 @@ fun Calculator(
     buttonSpacing: Dp = 8.dp,
     onAction: (CalculatorAction) -> Unit
 ) {
-    Box(modifier = modifier) {
-
+    Column() {
         Column(
             modifier = Modifier
-                .fillMaxSize(),
+                .fillMaxSize().background(color = Color.Black),
             verticalArrangement = Arrangement.spacedBy(32.dp)
         ) {
             Column(
@@ -43,7 +41,7 @@ fun Calculator(
                     .fillMaxWidth()
                     .fillMaxHeight(0.3f)
                     .clip(MaterialTheme.shapes.medium)
-                    .background(Color.LightGray)
+                    .background(Color.Black)
             ) {
                 Text(
                     text = state.number1 + (state.operation?.symbol ?: "") + state.number2,
@@ -53,13 +51,13 @@ fun Calculator(
                         .padding(vertical = 72.dp, horizontal = 8.dp),
                     fontWeight = FontWeight.Light,
                     fontSize = 80.sp,
-                    color = Color.Black,
+                    color = Color.White,
                     maxLines = 2
                 )
             }
             Column(
                 modifier = Modifier
-                    .fillMaxSize(),
+                    .fillMaxSize().weight(1f).padding(10.dp),
                 verticalArrangement = Arrangement.SpaceEvenly
             ) {
                 Row(
@@ -114,7 +112,7 @@ fun Calculator(
                     CalculatorButton(
                         symbol = "7",
                         modifier = Modifier
-                            .background(CalcColor.grey)
+                            .background(CalcColor.darkblack)
                             .aspectRatio(1f)       //Used to adjust image size (image ratio)
                             .weight(1f),
                         onClick = {
@@ -124,7 +122,7 @@ fun Calculator(
                     CalculatorButton(
                         symbol = "8",
                         modifier = Modifier
-                            .background(CalcColor.grey)
+                            .background(CalcColor.darkblack)
                             .aspectRatio(1f)       //Used to adjust image size (image ratio)
                             .weight(1f),
                         onClick = {
@@ -134,7 +132,7 @@ fun Calculator(
                     CalculatorButton(
                         symbol = "9",
                         modifier = Modifier
-                            .background(CalcColor.grey)
+                            .background(CalcColor.darkblack)
                             .aspectRatio(1f)       //Used to adjust image size (image ratio)
                             .weight(1f),
                         onClick = {
@@ -159,7 +157,7 @@ fun Calculator(
                     CalculatorButton(
                         symbol = "4",
                         modifier = Modifier
-                            .background(CalcColor.grey)
+                            .background(CalcColor.darkblack)
                             .aspectRatio(1f)       //Used to adjust image size (image ratio)
                             .weight(1f),
                         onClick = {
@@ -169,7 +167,7 @@ fun Calculator(
                     CalculatorButton(
                         symbol = "5",
                         modifier = Modifier
-                            .background(CalcColor.grey)
+                            .background(CalcColor.darkblack)
                             .aspectRatio(1f)       //Used to adjust image size (image ratio)
                             .weight(1f),
                         onClick = {
@@ -179,7 +177,7 @@ fun Calculator(
                     CalculatorButton(
                         symbol = "6",
                         modifier = Modifier
-                            .background(CalcColor.grey)
+                            .background(CalcColor.darkblack)
                             .aspectRatio(1f)       //Used to adjust image size (image ratio)
                             .weight(1f),
                         onClick = {
@@ -204,7 +202,7 @@ fun Calculator(
                     CalculatorButton(
                         symbol = "1",
                         modifier = Modifier
-                            .background(CalcColor.grey)
+                            .background(CalcColor.darkblack)
                             .aspectRatio(1f)       //Used to adjust image size (image ratio)
                             .weight(1f),
                         onClick = {
@@ -214,7 +212,7 @@ fun Calculator(
                     CalculatorButton(
                         symbol = "2",
                         modifier = Modifier
-                            .background(CalcColor.grey)
+                            .background(CalcColor.darkblack)
                             .aspectRatio(1f)       //Used to adjust image size (image ratio)
                             .weight(1f),
                         onClick = {
@@ -224,7 +222,7 @@ fun Calculator(
                     CalculatorButton(
                         symbol = "3",
                         modifier = Modifier
-                            .background(CalcColor.grey)
+                            .background(CalcColor.darkblack)
                             .aspectRatio(1f)       //Used to adjust image size (image ratio)
                             .weight(1f),
                         onClick = {
@@ -243,13 +241,13 @@ fun Calculator(
                     )
                 }
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth().padding(8.dp),
                     horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
                 ) {
                     CalculatorButton(
                         symbol = "0",
                         modifier = Modifier
-                            .background(CalcColor.grey)
+                            .background(CalcColor.darkblack)
                             .aspectRatio(2f)       //Used to adjust image size (image ratio)
                             .weight(2f),
                         onClick = {
@@ -259,9 +257,9 @@ fun Calculator(
                     CalculatorButton(
                         symbol = ".",
                         modifier = Modifier
-                            .background(CalcColor.grey)
-                            .aspectRatio(2f)       //Used to adjust image size (image ratio)
-                            .weight(2f),
+                            .background(CalcColor.darkblack)
+                            .aspectRatio(1f)       //Used to adjust image size (image ratio)
+                            .weight(1f),
                         onClick = {
                             onAction(CalculatorAction.Decimal)
                         }
@@ -269,9 +267,9 @@ fun Calculator(
                     CalculatorButton(
                         symbol = "=",
                         modifier = Modifier
-                            .background(CalcColor.grey)
-                            .aspectRatio(2f)       //Used to adjust image size (image ratio)
-                            .weight(2f),
+                            .background(CalcColor.orange)
+                            .aspectRatio(1f)       //Used to adjust image size (image ratio)
+                            .weight(1f),
                         onClick = {
                             onAction(CalculatorAction.Calculate)
                         }

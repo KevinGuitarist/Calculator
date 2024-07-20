@@ -18,10 +18,11 @@ class MainActivity : ComponentActivity() {
                 val viewModel: CalculatorViewModel by viewModels()       // View models is a type of CalculatorViewModel
                 val state = viewModel.state
                 val buttonSpacing = 8.dp
+
                 Calculator(
                     state = state,
                     onAction = viewModel :: onAction,
-                    buttonSpacing = buttonSpacing,
+                  //  buttonSpacing = 8.dp,
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(16.dp)
